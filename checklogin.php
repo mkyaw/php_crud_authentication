@@ -21,10 +21,10 @@
             $_SESSION['user'] = $username;
             
             /** redirect the user to user home page **/
-            // header("location: user_home.php");
+            header("location: user_home.php");
             
-            echo "<script>alert('Logged in successfully!');</script>";
-            echo "<script>window.location.assign('index.php');</script>";
+            // echo "<script>alert('Logged in successfully!');</script>";
+            // echo "<script>window.location.assign('index.php');</script>";
         } else {
             echo "<script>alert('Incorrect Password');</script>";
             echo "<script>window.location.assign('login.php');</script>";
