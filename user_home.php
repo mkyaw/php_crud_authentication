@@ -29,9 +29,30 @@
             <tr>
                 <th>Id</th>
                 <th>Details</th>
+                <th>Post Time</th>
+                <th>Edit Time</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <th>Public Post</th>
             </tr>
+            <?php
+                mysql_connect("localhost", "root", "root") or die(mysql_error());
+                mysql_select_db("php_crud_auth") or die("Cannot select the table");
+                $query = mysql_query("Select * from list");
+
+                while($row = mysql_fetch_array($query))
+                {
+                    Print "<tr>";
+                        Print '<td align="center">'. $row['id'] . "</td>";
+                        Print '<td align="center">'. $row['details'] . "</td>";
+                        Print '<td align="center">'. $row['date_posted']. " - ". $row['time_posted']."</td>";
+                        Print '<td align="center">'. $row['date_edited']. " - ". $row['time_edited']. "</td>";
+                        Print '<td align="center"><a href="edit.php">edit</a> </td>';
+                        Print '<td align="center"><a href="delete.php">delete</a> </td>';
+                        Print '<td align="center">'. $row['public']. "</td>";
+                    Print "</tr>";
+                }
+            ?>
         </table>
     </body>
 </html>
